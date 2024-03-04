@@ -1,7 +1,7 @@
 {
 	"id": "verse-of-the-day",
 	"name": "Verse of the Day",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"minAppVersion": "0.15.0",
 	"description": "Lets you add the verse of the day from YouVersion to your daily notes",
 	"author": "Janis Ringli",
