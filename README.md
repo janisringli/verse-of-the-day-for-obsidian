@@ -3,14 +3,13 @@
 -   Add the Verse of the day to your notes simply by using the command pallet from obsidian
 
 [![Build for Bible Reference Project](https://github.com/tim-hub/obsidian-bible-reference/actions/workflows/build.yml/badge.svg)](https://github.com/janisringli/verse-of-the-day-for-obsidian/actions/workflows/build.yml)
-[![obsidian bible reference user discussion forum](https://img.shields.io/badge/Discussion-blue)](https://github.com/janisringli/verse-of-the-day-for-obsidian/discussions)
 [![verse of the day for obsidian user discussion forum](https://img.shields.io/badge/Issues-green)](https://github.com/janisringli/verse-of-the-day-for-obsidian/issues)
 
 > These will be very appreciate for the project development. 👍
 >
 > -   👉 `Star` the Project
 > -   ☕️ **Buy me a coffee** @[buymeacoffee](https://buymeacoffee.com/janisringli)
-> -   ❤️ Provide Feedback in [`Issues`](https://github.com/tim-hub/obsidian-bible-reference/issues) or join [`Discussion`](https://github.com/tim-hub/obsidian-bible-reference/discussions)
+> -   ❤️ Provide Feedback in [`Issues`](https://github.com/janisringli/verse-of-the-day-for-obsidian/issues) or join [`Discussion`](https://github.com/tim-hub/obsidian-bible-reference/discussions)
 
 ---
 
