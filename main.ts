@@ -28,12 +28,6 @@ export default class VerseOfTheDayPlugin extends Plugin {
 		await this.loadSettings();
 		//TODO: Make this a setting inside a config
 		this.addSettingTab(new VerseSettingsTab(this.app, this));
-		this.getVerseOfTheDay(this.settings.language).then((verseData) => {
-			if (verseData) {
-				console.log(verseData.verse);
-				console.log(verseData.index);
-			}
-		});
 
 		this.addCommand({
 			id: "insert-verse-of-the-day",
@@ -72,8 +66,6 @@ export default class VerseOfTheDayPlugin extends Plugin {
 						>${verseData.verse}</br> - ${verseData.index}\n`;
 					// Insert the verse at the current cursor position
 					editor.replaceSelection(verseMd);
-					console.log(verseData.verse);
-					console.log(verseData.index);
 				} else {
 					console.error("Failed to fetch verse data");
 				}
@@ -81,17 +73,9 @@ export default class VerseOfTheDayPlugin extends Plugin {
 				// editor.replaceRange(verse, editor.getCursor());
 			},
 		});
-		console.log("loading plugin");
-		this.registerEvent(
-			this.app.vault.on("create", () => {
-				console.log("a new file has entered the arena");
-			})
-		);
 	}
 
-	async onunload() {
-		console.log("unloading plugin");
-	}
+	async onunload() {}
 
 	async getVerseOfTheDay(
 		userLanguage: string
@@ -117,7 +101,6 @@ export default class VerseOfTheDayPlugin extends Plugin {
 
 						if (match) {
 							const verseContainer: string = match[1].trim();
-							//console.log(verseContainer);
 
 							// Extract the verse from the divContent using slice
 							const slicedVerse: string = verseContainer.slice(
