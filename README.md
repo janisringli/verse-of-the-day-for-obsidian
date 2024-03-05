@@ -9,7 +9,7 @@
 >
 > -   👉 `Star` the Project
 > -   ☕️ **Buy me a coffee** @[buymeacoffee](https://buymeacoffee.com/janisringli)
-> -   ❤️ Provide Feedback in [`Issues`](https://github.com/janisringli/verse-of-the-day-for-obsidian/issues) or join [`Discussion`](https://github.com/tim-hub/obsidian-bible-reference/discussions)
+> -   ❤️ Provide Feedback in [`Issues`](https://github.com/janisringli/verse-of-the-day-for-obsidian/issues)
 
 ---
 

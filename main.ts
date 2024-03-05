@@ -31,7 +31,7 @@ export default class VerseOfTheDayPlugin extends Plugin {
 
 		this.addCommand({
 			id: "insert-verse-of-the-day",
-			name: "Insert Verse of the Day",
+			name: "Insert Daily Verse",
 			editorCallback: async (editor: Editor) => {
 				const verseData = await this.getVerseOfTheDay(
 					this.settings.language
