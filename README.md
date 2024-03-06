@@ -1,6 +1,6 @@
 ## Verse of the Day for Obsidian
 
--   Add the Verse of the day to your notes simply by using the command pallet from obsidian
+-   Add the Verse of the day provided by [YouVersion](https://www.bible.com) to your notes simply by using the command pallet from obsidian
 
 [![Build for Bible Reference Project](https://github.com/tim-hub/obsidian-bible-reference/actions/workflows/build.yml/badge.svg)](https://github.com/janisringli/verse-of-the-day-for-obsidian/actions/workflows/build.yml)
 [![verse of the day for obsidian user discussion forum](https://img.shields.io/badge/Issues-green)](https://github.com/janisringli/verse-of-the-day-for-obsidian/issues)

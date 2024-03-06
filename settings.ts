@@ -12,7 +12,7 @@ export class VerseSettingsTab extends PluginSettingTab {
 	display() {
 		const { containerEl } = this;
 		containerEl.empty(); // Clear the container if it's not empty
-		containerEl.createEl("h1", { text: "Verse of the Day Settings" });
+		containerEl.createEl("h1", { text: "Settings" });
 
 		new Setting(containerEl)
 			.setName("Language")
@@ -103,7 +103,7 @@ export class VerseSettingsTab extends PluginSettingTab {
 					});
 			});
 		new Setting(containerEl)
-			.setName("Outgoing Link")
+			.setName("Outgoing link")
 			.setDesc(
 				"Adds a outgoing link to the header that leads to another file inside your vault, for example [[John]]"
 			)
