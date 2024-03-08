@@ -1,6 +1,4 @@
 import { Plugin, Editor, requestUrl, RequestUrlParam } from "obsidian";
-import { IncomingMessage } from "http";
-import * as https from "https";
 import { VerseSettingsTab } from "./settings";
 
 interface VerseSettings {
