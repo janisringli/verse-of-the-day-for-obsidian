@@ -12,7 +12,6 @@ export class VerseSettingsTab extends PluginSettingTab {
 	display() {
 		const { containerEl } = this;
 		containerEl.empty(); // Clear the container if it's not empty
-		containerEl.createEl("h1", { text: "Settings" });
 
 		new Setting(containerEl)
 			.setName("Language")
