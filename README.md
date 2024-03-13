@@ -14,6 +14,8 @@
 ---
 
 ## About
+<img width="768" alt="image" src="https://github.com/janisringli/verse-of-the-day-for-obsidian/assets/80834609/371cb0a6-fa8b-4235-8dab-233f0aa041f6">
+
 
 ## How to use
 
