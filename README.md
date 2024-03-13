@@ -21,7 +21,7 @@
 2. Click on the line where you want the verse to go
 3. Open the Command pallet with `cmnd + p` or `ctrl + p`
 4. Search for "insert verse of the day"
-5. Select "Verse of the Day: Insert verse of the day"
+5. Select "Verse of the Day: Insert daily verse"
 
 ## Contribution and Credits
 
