@@ -1,4 +1,6 @@
 import { Plugin, Editor, requestUrl, RequestUrlParam } from "obsidian";
+import { IncomingMessage } from "http";
+import * as https from "https";
 import { VerseSettingsTab } from "./settings";
 
 interface VerseSettings {
@@ -61,7 +63,7 @@ export default class VerseOfTheDayPlugin extends Plugin {
 						//this is a comment to block the lint from moving the link to the next line
 						//TODO:Change link to be dynamic
 						`>[!bible] Verse of the Day - [ ${verseData.index}](${verseData.link}) ${book}
-						>${verseData.verse}</br> - ${verseData.index}\n`;
+                        >${verseData.verse}</br> - ${verseData.index}\n`;
 					// Insert the verse at the current cursor position
 					editor.replaceSelection(verseMd);
 				} else {
@@ -79,19 +81,18 @@ export default class VerseOfTheDayPlugin extends Plugin {
 		userLanguage: string
 	): Promise<{ verse: string; index: string; link: string } | null> {
 		// Construct the URL using string interpolation
+		const url = `https://www.bible.com/${userLanguage}/verse-of-the-day`;
 
 		return new Promise((resolve, reject) => {
-			const options: RequestUrlParam = {
-				method: "GET",
-				url: `https://www.bible.com/${userLanguage}/verse-of-the-day`,
-			};
-			requestUrl(options)
-				.then((response: any) => {
+			https
+				.get(url, (response: IncomingMessage) => {
 					let data = "";
-					response.onData((chunk: any) => {
+
+					response.on("data", (chunk: string) => {
 						data += chunk;
 					});
-					response.onEnd(() => {
+
+					response.on("end", () => {
 						// Use the specified pattern to match the desired text
 						const pattern =
 							/<div class="mbs-3 border border-l-large border-black pli-1 plb-1 pis-2">(.*?)<\/div>/s;
@@ -131,7 +132,7 @@ export default class VerseOfTheDayPlugin extends Plugin {
 						}
 					});
 				})
-				.catch((error: any) => {
+				.on("error", (error: any) => {
 					console.error("Error:", error);
 					reject(error);
 				});
