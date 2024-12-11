@@ -1,4 +1,6 @@
 import { Plugin, Editor, requestUrl, RequestUrlParam } from "obsidian";
+import { IncomingMessage } from "http";
+import * as https from "https";
 import { VerseSettingsTab } from "./settings";
 
 interface VerseSettings {
@@ -62,7 +64,7 @@ export default class VerseOfTheDayPlugin extends Plugin {
 						//this is a comment to block the lint from moving the link to the next line
 						//TODO:Change link to be dynamic
 						`>[!bible] Verse of the Day - [ ${verseData.index}](${verseData.link}) ${book}
-						>${verseData.verse}</br> - ${verseData.index}\n`;
+                        >${verseData.verse}</br> - ${verseData.index}\n`;
 					// Insert the verse at the current cursor position
 					editor.replaceSelection(verseMd);
 				} else {

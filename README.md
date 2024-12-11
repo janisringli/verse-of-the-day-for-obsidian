@@ -14,6 +14,8 @@
 ---
 
 ## About
+<img width="500" alt="image" src="https://github.com/janisringli/verse-of-the-day-for-obsidian/assets/80834609/371cb0a6-fa8b-4235-8dab-233f0aa041f6">
+
 
 ## How to use
 
@@ -21,7 +23,7 @@
 2. Click on the line where you want the verse to go
 3. Open the Command pallet with `cmnd + p` or `ctrl + p`
 4. Search for "insert verse of the day"
-5. Select "Verse of the Day: Insert verse of the day"
+5. Select "Verse of the Day: Insert daily verse"
 
 ## Contribution and Credits
 
