@@ -1,6 +1,4 @@
 import { Plugin, Editor, requestUrl, RequestUrlParam } from "obsidian";
-import { IncomingMessage } from "http";
-import * as https from "https";
 import { VerseSettingsTab } from "./settings";
 
 interface VerseSettings {
@@ -25,7 +23,7 @@ export default class VerseOfTheDayPlugin extends Plugin {
 		await this.saveData(this.settings);
 	}
 	async onload() {
-		console.log("loading Verse of the Day plugin");
+		console.info("loading Verse of the Day plugin");
 		await this.loadSettings();
 		//TODO: Make this a setting inside a config
 		this.addSettingTab(new VerseSettingsTab(this.app, this));
@@ -81,7 +79,7 @@ export default class VerseOfTheDayPlugin extends Plugin {
 	async getVerseOfTheDay(
 		userLanguage: string
 	): Promise<{ verse: string; index: string; link: string } | null> {
-		console.log("Getting verse of the day");
+		console.info("Getting verse of the day");
 
 		const options: RequestUrlParam = {
 			method: "GET",
@@ -94,7 +92,6 @@ export default class VerseOfTheDayPlugin extends Plugin {
 			// Assuming response.text() contains the HTML
 			const data: string =
 				typeof response === "string" ? response : response.text;
-			console.log(data);
 
 			// Use the specified pattern to match the desired text
 			const pattern =
