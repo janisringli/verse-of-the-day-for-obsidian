@@ -23,6 +23,7 @@ export default class VerseOfTheDayPlugin extends Plugin {
 		await this.saveData(this.settings);
 	}
 	async onload() {
+		console.log("loading Verse of the Day plugin");
 		await this.loadSettings();
 		//TODO: Make this a setting inside a config
 		this.addSettingTab(new VerseSettingsTab(this.app, this));
@@ -78,63 +79,60 @@ export default class VerseOfTheDayPlugin extends Plugin {
 	async getVerseOfTheDay(
 		userLanguage: string
 	): Promise<{ verse: string; index: string; link: string } | null> {
-		// Construct the URL using string interpolation
+		console.log("Getting verse of the day");
 
-		return new Promise((resolve, reject) => {
-			const options: RequestUrlParam = {
-				method: "GET",
-				url: `https://www.bible.com/${userLanguage}/verse-of-the-day`,
-			};
-			requestUrl(options)
-				.then((response: any) => {
-					let data = "";
-					response.onData((chunk: any) => {
-						data += chunk;
-					});
-					response.onEnd(() => {
-						// Use the specified pattern to match the desired text
-						const pattern =
-							/<div class="mbs-3 border border-l-large border-black pli-1 plb-1 pis-2">(.*?)<\/div>/s;
-						const match: RegExpMatchArray | null =
-							data.match(pattern);
+		const options: RequestUrlParam = {
+			method: "GET",
+			url: `https://www.bible.com/${userLanguage}/verse-of-the-day`,
+		};
 
-						if (match) {
-							const verseContainer: string = match[1].trim();
+		try {
+			const response = await requestUrl(options);
 
-							// Extract the verse from the divContent using slice
-							const slicedVerse: string = verseContainer.slice(
-								verseContainer.indexOf(">") + 1,
-								verseContainer.indexOf("</a>")
-							);
-							const verseIndex: string = verseContainer.slice(
-								verseContainer.indexOf('25">') + 4,
-								verseContainer.indexOf("</p")
-							);
-							const verseLinkContainer = verseContainer.slice(
-								verseContainer.indexOf("</a>") + 1,
-								verseContainer.indexOf("<p")
-							);
-							const verseLink: string =
-								"https://www.bible.com" +
-								verseLinkContainer.slice(
-									verseLinkContainer.indexOf("href=") + 6,
-									verseLinkContainer.indexOf('">')
-								);
-							resolve({
-								verse: slicedVerse,
-								index: verseIndex,
-								link: verseLink,
-							});
-						} else {
-							console.error("No match found for pattern.");
-							resolve(null);
-						}
-					});
-				})
-				.catch((error: any) => {
-					console.error("Error:", error);
-					reject(error);
-				});
-		});
+			// Assuming response.text() contains the HTML
+			const data: string =
+				typeof response === "string" ? response : response.text;
+			console.log(data);
+
+			// Use the specified pattern to match the desired text
+			const pattern =
+				/<div class="mbs-2 border border-l-large rounded-1 border-black dark:border-white pli-1 plb-1 pis-2 mbe-3">(.*?)<\/div>/s;
+			const match = data.match(pattern);
+
+			if (match) {
+				const verseContainer = match[1].trim();
+
+				// Extract the verse from the divContent using slice
+				const slicedVerse: string = verseContainer.slice(
+					verseContainer.indexOf(">") + 1,
+					verseContainer.indexOf("</a>")
+				);
+				const verseIndex: string = verseContainer.slice(
+					verseContainer.indexOf('25">') + 4,
+					verseContainer.indexOf("</p")
+				);
+				const verseLinkContainer = verseContainer.slice(
+					verseContainer.indexOf("</a>") + 1,
+					verseContainer.indexOf("<p")
+				);
+				const verseLink: string =
+					"https://www.bible.com" +
+					verseLinkContainer.slice(
+						verseLinkContainer.indexOf("href=") + 6,
+						verseLinkContainer.indexOf('">')
+					);
+				return {
+					verse: slicedVerse,
+					index: verseIndex,
+					link: verseLink,
+				};
+			} else {
+				console.error("No match found for pattern.");
+				return null;
+			}
+		} catch (error) {
+			console.error("Error:", error);
+			throw error;
+		}
 	}
 }
