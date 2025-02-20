@@ -29,7 +29,7 @@
 ## Automation Instructions 
 To automate using the "Verse of the Day" feature with Templater, follow these steps:
 ### Prerequisites
-- Ensure you have installed the [Templater](https://github.com/SilentVoid13/Templater|) plugin in your system.
+- Ensure you have installed the [Templater](https://github.com/SilentVoid13/Templater) plugin in your system.
 
 ### Steps to Set Up Automation
 #### 1. Enable Trigger on New File Creation:
