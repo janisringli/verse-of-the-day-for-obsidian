@@ -25,6 +25,33 @@
 4. Search for "insert verse of the day"
 5. Select "Verse of the Day: Insert daily verse"
 
+
+## Automation Instructions 
+To automate using the "Verse of the Day" feature with Templater, follow these steps:
+### Prerequisites
+- Ensure you have installed the [Templater](https://github.com/SilentVoid13/Templater) plugin in your system.
+
+### Steps to Set Up Automation
+#### 1. Enable Trigger on New File Creation:
+- Go to Templater settings and verify that the option "Trigger Templater on new file creation" is toggled on.
+
+#### 2. Select the Template Folder:
+- Confirm that the correct folder is selected as the "Template folder" in Templater settings.
+
+#### 3. Add the Automation Command:
+- Insert the following command into the template you wish to automate:
+ ```<%* this.app.commands.executeCommandById("verse-of-the-day:insert-verse-of-the-day") %>```
+
+#### 4. Create a New File:
+- Use the template with the command added to create a new file. The automation will execute automatically.
+
+### Additional Tips
+-Ensure your template structure is correct and that the Templater plugin is active in your workspace.
+-Test the setup with a dummy file before integrating it into your workflow.
+
+Enjoy your automated "Verse of the Day" experience!
+
+
 ## Contribution and Credits
 
 -   All different kinds of contributions are welcome,
