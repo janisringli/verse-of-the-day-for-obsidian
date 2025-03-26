@@ -81,6 +81,7 @@ export default class VerseOfTheDayPlugin extends Plugin {
 	): Promise<{ verse: string; index: string; link: string } | null> {
 		console.info("Getting verse of the day");
 
+		
 		const options: RequestUrlParam = {
 			method: "GET",
 			url: `https://www.bible.com/${userLanguage}/verse-of-the-day`,

@@ -1,11 +1,11 @@
 {
 	"id": "verse-of-the-day",
 	"name": "Verse of the Day",
-	"version": "1.1.2",
+	"version": "1.2.0",
 	"minAppVersion": "0.15.0",
 	"description": "Lets you add the verse of the day from YouVersion to your daily notes",
 	"author": "Janis Ringli",
 	"authorUrl": "https://github.com/janisringli",
 	"fundingUrl": "https://buymeacoffee.com/janisringli",
-	"isDesktopOnly": true
+	"isDesktopOnly": false
 }
